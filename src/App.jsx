@@ -36,7 +36,7 @@ function App() {
 		<>
 			{isModalCart ? <CartModal handleHideModalCart={handleHideModalCart} /> : null }
 			<Header handleOpenModalCart={handleOpenModalCart}/>
-			<main className="min-h-[85vh] max-w-10/12 md:max-w-[80%] mx-auto md:px-4 flex flex-row mt-20 md:gap-4 font-urbanist">
+			<main className="min-h-[85vh] max-w-10/12 md:max-w-[90%] mx-auto md:px-4 flex flex-row mt-20 md:gap-4 font-urbanist">
 				<div className='hidden md:block'>
 					<Sidebar />
 				</div>
