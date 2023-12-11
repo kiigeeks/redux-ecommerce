@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import ProductList from './features/productlist/ProductList'
-import CartModal from './features/cart/cartModal'
+import CartModal from './features/cart/CartModal'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import SearchIcon from "./assets/search.svg"
