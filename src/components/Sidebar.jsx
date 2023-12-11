@@ -50,6 +50,7 @@ const Sidebar = ({ handleSidebar }) => {
                 </div>
             </div>
             <hr className='h-[1.2px] bg-gray-300 my-3' />
+            {/* category */}
             <div className='px-4 py-2 flex flex-col gap-2'>
                 <span className='font-medium text-lg'>
                     Categories
@@ -69,6 +70,7 @@ const Sidebar = ({ handleSidebar }) => {
                 </ul>
             </div>
             <hr className='h-[1.2px] bg-gray-300 my-3' />
+            {/* sort */}
             <div className='px-4 py-2 flex flex-col gap-2 mb-7'>
                 <label htmlFor='sort' className='font-medium text-lg'>
                     Sort

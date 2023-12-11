@@ -37,7 +37,6 @@ function ProductList({ handleOpenModalCart }) {
         handleOpenModalCart()
     }
 
-    console.log(products.length); 
     return (
         <>
             <ToTop />
@@ -53,9 +52,9 @@ function ProductList({ handleOpenModalCart }) {
                             <div className="w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 py-10 px-4 md:px-0 ">
                                 {products.map((product) => {
                                     return (
-                                        <div key={product.id} className="group bg-white rounded-xl border shadow p-4 w-full">
+                                        <div key={product.id} className="bg-white rounded-xl border shadow p-4 w-full">
                                             <div className="relative w-[80%] h-[250px] mx-auto overflow-hidden">
-                                                <img src={product.image} alt={product.title} loading="eager" className="w-full h-full object-contain group-hover:scale-110 transition-all duration-500 ease-in-out" />
+                                                <img src={product.image} alt={product.title} loading="eager" className="w-full h-full object-contain" />
                                             </div>
                                             <div className="flex flex-col gap-1 mt-5">
                                                 <h3 className="font-bold text-lg text-justify md:truncate">{product.title}</h3>
