@@ -60,18 +60,18 @@ function ProductList({ handleOpenModalCart }) {
                                                 <h3 className="font-bold text-lg text-justify md:truncate">{product.title}</h3>
                                                 <h4 className="font-light italic tracking-wide text-gray-600 capitalize">{product.category}</h4>
                                                 <h5 className="mt-3 font-bold text-xl tracking-wider">&#36; {product.price}</h5>
-                                                <div className="mt-2 mb-1 flex flex-row gap-3 justify-start md:justify-center font-semibold tracking-wider text-gray-700 items-center">
-                                                    <div className="flex flex-row gap-2 md:gap-1 justify-center items-center">
+                                                <div className="mt-2 mb-1 flex flex-row gap-2 lg:gap-1 justify-start font-semibold tracking-wider text-gray-700 items-center">
+                                                    <div className="h-full flex flex-row items-end lg:items-start gap-2 md:gap-1">
                                                         <img src={StarIcon} alt="star" loading="lazy" className="w-7 md:w-5 h-7 md:h-5" />
-                                                        <span className="text-lg">{product.rating.rate}</span> 
+                                                        <span className="text-base">{product.rating.rate}</span> 
                                                     </div>
                                                     <span className="text-2xl font-thin">|</span>
-                                                    <span className="text-base">({product.rating.count} reviews)</span>
+                                                    <span className="text-base lg:text-sm">({product.rating.count} reviews)</span>
                                                 </div>
                                                 <button
                                                     type="button"
                                                     onClick={() => handleBuyNow(product)}
-                                                    className="mt-2 md:mt-0 place-self-end md:place-self-center w-10 md:w-9 h-10 md:h-9 p-2 bg-gray-400 rounded-md"
+                                                    className="mt-3 md:mt-0 place-self-end md:place-self-center w-10 md:w-9 h-10 md:h-9 p-2 bg-gray-400 rounded-md"
                                                 >
                                                     <img src={CartIcon} alt="cart" loading="lazy" className="w-full h-full object-cover" />
                                                 </button>
