@@ -27,10 +27,10 @@ const Sidebar = ({ handleSidebar }) => {
     }
 
     return (
-        <div className='flex flex-col w-screen md:w-[350px] h-fit mt-10 border-2 border-gray-200 bg-white rounded-md'>
+        <div className='flex flex-col w-screen lg:w-[350px] h-fit mt-10 border-2 border-gray-200 bg-white rounded-md'>
             <div className='flex items-center justify-between bg-gray-200 px-4 py-2 rounded-t-md'>
                 <h2 className='font-extrabold text-2xl tracking-wide'>Filter</h2>
-                <img onClick={handleSidebar} loading='eager' src={CloseIcon} alt='close' className='md:hidden w-10 h-10 cursor-pointer' />
+                <img onClick={handleSidebar} loading='eager' src={CloseIcon} alt='close' className='lg:hidden w-10 h-10 cursor-pointer' />
             </div>
             <div className='px-4 py-2 mt-3 flex flex-col gap-2'>
                 <span className='font-medium text-lg'>

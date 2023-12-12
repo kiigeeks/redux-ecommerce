@@ -36,8 +36,8 @@ function App() {
 		<>
 			{isModalCart ? <CartModal handleHideModalCart={handleHideModalCart} /> : null }
 			<Header handleOpenModalCart={handleOpenModalCart}/>
-			<main className="min-h-[85vh] max-w-10/12 md:max-w-[90%] mx-auto md:px-4 flex flex-row mt-20 md:gap-4 font-urbanist">
-				<div className='hidden md:block'>
+			<main className="min-h-[85vh] max-w-10/12 lg:max-w-[90%] mx-auto lg:px-4 flex flex-row mt-20 lg:gap-4 font-urbanist">
+				<div className='hidden lg:block'>
 					<Sidebar />
 				</div>
 				
@@ -52,7 +52,7 @@ function App() {
 						</div>
 					</div>
 				:
-					<div onClick={handleSidebar} className='md:hidden fixed top-28 -left-5 z-50 w-16 h-12 p-2 flex justify-end items-center bg-blue-500 rounded-lg'>
+					<div onClick={handleSidebar} className='lg:hidden fixed top-28 -left-5 z-50 w-16 h-12 p-2 flex justify-end items-center bg-blue-500 rounded-lg'>
 						<img src={SearchIcon} alt="cart" loading="lazy" className="w-8 h-8 object-cover" />
 					</div>
 				}

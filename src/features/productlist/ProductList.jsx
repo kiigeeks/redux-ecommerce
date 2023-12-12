@@ -49,7 +49,7 @@ function ProductList({ handleOpenModalCart }) {
                                 <h3 className="text-center text-2xl text-gray-700 font-extrabold italic">Product not found</h3>
                             </div>
                         :
-                            <div className="w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 py-10 px-4 md:px-0 ">
+                            <div className="w-full h-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 py-10 px-4 lg:px-0 ">
                                 {products.map((product) => {
                                     return (
                                         <div key={product.id} className="bg-white rounded-xl border shadow p-4 w-full">
