@@ -4,15 +4,18 @@ import { useDispatch, useSelector } from "react-redux"
 import { addItemsToCart } from "../cart/cartSlice";
 import StarIcon from "../../assets/star.svg"
 import Loading from "../../components/Loading";
-import { selectProducts, storeProducts } from "./productSlice";
+import { addWishlist, selectProducts, selectWishlist, storeProducts } from "./productSlice";
 import ToTop from "../../components/ToTop";
 import { IoEye } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
+import { IoIosHeart } from "react-icons/io";
+
 
 function ProductList({ handleOpenModalCart, handleOpenModalProduct }) {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch();
     const products = useSelector(selectProducts);
+    const wishlist = useSelector(selectWishlist);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -38,6 +41,10 @@ function ProductList({ handleOpenModalCart, handleOpenModalProduct }) {
         handleOpenModalCart()
     }
 
+    const handleWishlist = (product) => {
+        dispatch(addWishlist(product))
+    }
+
     return (
         <>
             <ToTop />
@@ -53,7 +60,14 @@ function ProductList({ handleOpenModalCart, handleOpenModalProduct }) {
                             <div className="w-full h-full grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 py-10 px-4 lg:px-0 ">
                                 {products.map((product) => {
                                     return (
-                                        <div key={product.id} className="bg-white rounded-xl border shadow p-4 w-full">
+                                        <div key={product.id} className="bg-white rounded-xl border shadow p-4 w-full relative">
+                                            <div onClick={() => handleWishlist(product)} className="absolute z-10 right-3 top-3 w-10 md:w-7 h-10 md:h-7 p-2 md:p-1 bg-gray-300 rounded-full flex justify-center items-center cursor-pointer">
+                                                {wishlist.findIndex(item => item.id === product.id) !== -1 ?
+                                                    <IoIosHeart className="w-full h-full text-red-500" />
+                                                    :
+                                                    <IoIosHeart className="w-full h-full text-white" />
+                                                }
+                                            </div>
                                             <div className="relative w-[80%] h-[250px] mx-auto overflow-hidden">
                                                 <img src={product.image} alt={product.title} loading="eager" className="w-full h-full object-contain" />
                                             </div>

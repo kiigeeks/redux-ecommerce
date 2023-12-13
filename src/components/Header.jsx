@@ -6,7 +6,7 @@ import { FaCartShopping } from "react-icons/fa6";
 const Header = ({ handleOpenModalCart }) => {
     const totalItems = useSelector(selectCartTotalItems)
     return (
-        <header className="fixed top-0 z-10 w-screen bg-white shadow shadow-b-2">
+        <header className="fixed top-0 z-20 w-screen bg-white shadow shadow-b-2">
             <div className="max-w-full md:max-w-[90%] mx-auto px-4">
                 <div className="flex items-center justify-between h-20">
                     <h1 className="text-2xl md:text-4xl font-bold font-urbanist text-gray-800 cursor-pointer">

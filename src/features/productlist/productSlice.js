@@ -8,6 +8,7 @@ const initialState = {
     filteredCategories: [],
     sortedType: "",
     keywordSearch: "",
+    wishlist: [],
 }
 
 export const productSlice = createSlice({
@@ -63,11 +64,22 @@ export const productSlice = createSlice({
                 state.filteredProducts = sortData(tempDatas, state.sortedType)
             }
             state.keywordSearch = action.payload;
-        }
+        },
+        addWishlist: (state, action) => {
+            const newItem = action.payload;
+            const indexProduct = state.wishlist.findIndex(product => product.id === newItem.id)
+
+            if (indexProduct !== -1) {
+                const updatedWishlist = state.wishlist.filter((product) => product.id !== newItem.id);
+                state.wishlist = updatedWishlist;
+            } else {
+                state.wishlist.push(newItem)
+            }
+        },
     },
 })
 
-export const { storeProducts, filterByCategories, sortingProducts, searchProduct } = productSlice.actions;
+export const { storeProducts, filterByCategories, sortingProducts, searchProduct, addWishlist } = productSlice.actions;
 export default productSlice.reducer;
 
 // selector
@@ -76,3 +88,4 @@ export const selectCategories = state => state.product.categoryItems
 export const selectFilteredCategories = state => state.product.filteredCategories
 export const selectSortType = state => state.product.sortedType
 export const selectKeywordSearch = state => state.product.keywordSearch
+export const selectWishlist = state => state.product.wishlist
