@@ -8,10 +8,11 @@ import { addQuantityItemsCart,
             selectCartItems, 
             selectCartTotalItems, 
             selectCartTotalPrices } from './cartSlice'
-import CloseIcon from '../../assets/close.svg'
-import RemoveIcon from '../../assets/remove.svg'
+import { IoCloseOutline } from "react-icons/io5";
 import MinusIcon from '../../assets/minus.svg'
 import AddIcon from '../../assets/add.svg'
+import { FaTrash } from "react-icons/fa";
+
 
 const CartModal = ({ handleHideModalCart }) => {
     const cartItems = useSelector(selectCartItems);
@@ -56,8 +57,8 @@ const CartModal = ({ handleHideModalCart }) => {
                 <button
                     type='button'
                     onClick={handleHideModalCart}
-                    className='absolute -top-3 md:-top-4 -right-3 md:-right-1 w-12 h-12 rounded-lg'>
-                    <img src={CloseIcon} alt='close' className='w-full h-full' />
+                    className='absolute -top-2 -right-3 md:right-0 w-10 h-10 rounded-lg'>
+                    <IoCloseOutline className='w-full h-full' />
                 </button>
             </div>
             {cartItems.length  ?
@@ -82,7 +83,7 @@ const CartModal = ({ handleHideModalCart }) => {
                                             <div className="flex items-center mt-2 md:mt-1">
                                                 <h4 className="text-2xl md:text-base font-bold md:font-normal">$ {product.price}</h4>
                                             </div>
-                                            <div className='mt-5 w-full h-full flex flex-row items-center justify-center md:justify-between gap-10 md:gap-0'>
+                                            <div className='mt-5 w-full h-full flex flex-row items-center justify-between gap-10 md:gap-0'>
                                                 <div className="flex flex-row gap-3 justify-center items-center">
                                                     <button
                                                         type='button'
@@ -90,7 +91,7 @@ const CartModal = ({ handleHideModalCart }) => {
                                                         className="h-9 lg:h-7 w-9 lg:w-7 cursor-pointer">
                                                         <img src={MinusIcon} loading='lazy' alt="minus" className="h-full w-full" />
                                                     </button>
-                                                    <div className="h-10 md:h-7 w-16 lg:w-24 border border-gray-900 bg-white rounded-md flex justify-center items-center p-[2px]">
+                                                    <div className="h-10 md:h-7 w-20 lg:w-24 border border-gray-900 bg-white rounded-md flex justify-center items-center p-[2px]">
                                                         <input type="number" value={product.quantity} className="w-full h-full text-base md:text-sm text-center bg-transparent focus:outline-none focus:ring-0 " />
                                                     </div>
                                                     <button
@@ -105,7 +106,7 @@ const CartModal = ({ handleHideModalCart }) => {
                                                     className='flex justify-center items-center'
                                                     onClick={() => handleRemoveItem(product)}
                                                 >
-                                                    <img src={RemoveIcon} alt='trash' className='w-10 md:w-8 h-10 md:h-8' />
+                                                    <FaTrash className='w-7 md:w-6 h-7 md:h-6 text-red-500'/>
                                                 </button>
                                             </div>
                                         </div>

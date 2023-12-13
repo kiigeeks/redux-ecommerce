@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import Modal from '../../components/Modal'
-import { useDispatch } from "react-redux"
-import CloseIcon from '../../assets/close.svg'
+import { useDispatch } from "react-redux";
+import { IoCloseOutline } from "react-icons/io5";
 import StarIcon from "../../assets/star.svg"
 import MinusIcon from '../../assets/minus.svg'
 import AddIcon from '../../assets/add.svg'
 import { useState } from 'react'
 import { changeQuantityItemsCart } from '../cart/cartSlice'
+
 
 const ProductModal = ({ handleOpenModalCart, handleHideModalProduct, product }) => {
     const dispatch = useDispatch()
@@ -30,8 +31,8 @@ const ProductModal = ({ handleOpenModalCart, handleHideModalProduct, product }) 
                     <button
                         type='button'
                         onClick={handleHideModalProduct}
-                        className='absolute -top-3 md:-top-4 -right-3 md:-right-1 w-12 h-12 rounded-lg'>
-                        <img src={CloseIcon} alt='close' className='w-full h-full' />
+                        className='absolute -top-2 -right-3 md:-right-0 w-10 h-10 rounded-lg'>
+                        <IoCloseOutline className='w-full h-full'/>
                     </button>
                 </div>
                 <div className='w-full my-8 px-4 flex flex-col lg:flex-row justify-center items-center lg:items-start gap-7'>
@@ -58,7 +59,7 @@ const ProductModal = ({ handleOpenModalCart, handleHideModalProduct, product }) 
                             {product.description}
                         </p>
                         
-                        <div className='mt-5 w-full h-full flex flex-col lg:flex-row items-center justify-start gap-7 md:gap-5'>
+                        <div className='mt-5 w-full h-full flex flex-col md:flex-row items-center justify-start gap-7 md:gap-5'>
                             <div className="flex flex-row gap-3 justify-center items-center">
                                 <button
                                     type='button'

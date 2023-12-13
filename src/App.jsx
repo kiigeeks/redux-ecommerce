@@ -6,7 +6,7 @@ import CartModal from './features/cart/CartModal'
 import ProductModal from './features/productlist/ProductModal'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
-import SearchIcon from "./assets/search.svg"
+import { FiSearch } from "react-icons/fi";
 
 function App() {
 	const [isModalCart, setIsModalCart] = useState(false)
@@ -65,8 +65,8 @@ function App() {
 						</div>
 					</div>
 				:
-					<div onClick={handleSidebar} className='lg:hidden fixed top-28 -left-5 z-50 w-16 h-12 p-2 flex justify-end items-center bg-blue-500 rounded-lg'>
-						<img src={SearchIcon} alt="cart" loading="lazy" className="w-8 h-8 object-cover" />
+					<div onClick={handleSidebar} className='lg:hidden fixed top-28 -left-5 z-10 w-16 h-12 p-2 flex justify-end items-center bg-blue-500 rounded-lg'>
+						<FiSearch className="w-7 h-7 text-white"/>
 					</div>
 				}
 				<ProductList handleOpenModalCart={handleOpenModalCart} handleOpenModalProduct={handleOpenModalProduct}/>

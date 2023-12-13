@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import SearchIcon from '../assets/search.svg'
-import CloseIcon from '../assets/close.svg'
+import { FiSearch } from "react-icons/fi";
+import { IoCloseOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux"
 import { selectCategories, filterByCategories, sortingProducts, selectSortType, selectFilteredCategories, searchProduct } from '../features/productlist/productSlice';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ const Sidebar = ({ handleSidebar }) => {
         <div className='flex flex-col w-screen lg:w-[270px] h-fit mt-10 border-2 border-gray-200 bg-white rounded-md'>
             <div className='flex items-center justify-between bg-gray-200 px-4 py-2 rounded-t-md'>
                 <h2 className='font-extrabold text-2xl tracking-wide'>Filter</h2>
-                <img onClick={handleSidebar} loading='eager' src={CloseIcon} alt='close' className='lg:hidden w-10 h-10 cursor-pointer' />
+                <IoCloseOutline onClick={handleSidebar} className="lg:hidden w-10 h-10 cursor-pointer"/>
             </div>
             <div className='px-4 py-2 mt-3 flex flex-col gap-2'>
                 <span className='font-medium text-lg'>
@@ -43,7 +43,8 @@ const Sidebar = ({ handleSidebar }) => {
                         </div>
                         <div className="h-full w-[20%] bg-gray-400 flex justify-center bg-gradient-primary rounded-e-lg">
                             <button type='submit' className="h-full w-9 flex justify-center items-center p-[1px]">
-                                <img src={SearchIcon} alt="search" className="h-6 w-6" />
+                                {/* <img src={SearchIcon} alt="search" className="h-6 w-6" /> */}
+                                <FiSearch className="h-6 w-6 text-white"/>
                             </button>
                         </div>
                     </form>
