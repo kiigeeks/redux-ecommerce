@@ -14,7 +14,7 @@ import MinusIcon from '../../assets/minus.svg'
 import AddIcon from '../../assets/add.svg'
 
 const CartModal = ({ handleHideModalCart }) => {
-    const cartItems = useSelector(selectCartItems)
+    const cartItems = useSelector(selectCartItems);
     const totalItems = useSelector(selectCartTotalItems);
     const totalPrice = useSelector(selectCartTotalPrices);
     const dispatch = useDispatch();

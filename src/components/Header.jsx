@@ -5,7 +5,6 @@ import { selectCartTotalItems } from '../features/cart/cartSlice'
 
 const Header = ({ handleOpenModalCart }) => {
     const totalItems = useSelector(selectCartTotalItems)
-
     return (
         <header className="fixed top-0 z-10 w-screen bg-white shadow shadow-b-2">
             <div className="max-w-full md:max-w-[90%] mx-auto px-4">

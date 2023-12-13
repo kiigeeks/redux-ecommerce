@@ -49,11 +49,29 @@ export const cartSlice = createSlice({
                 const updatedCart = state.cartItems.filter((product) => product.id !== selectItem.id);
                 state.cartItems = updatedCart;
             }
+        },
+        changeQuantityItemsCart: (state, action) => {
+            const item = action.payload;
+            
+            if (item && item.newQuantity >= 1) {
+                const indexProduct = state.cartItems.findIndex(product => product.id === item.product.id)
+
+                if (indexProduct !== -1) {
+                    state.cartItems[indexProduct].quantity += item.newQuantity;
+                    state.cartItems[indexProduct].totalPrice = state.cartItems[indexProduct].quantity * state.cartItems[indexProduct].price;
+                } else {
+                    state.cartItems.push({
+                        ...item.product,
+                        quantity: item.newQuantity,
+                        totalPrice: (item.newQuantity * item.product.price)
+                    })
+                }
+            }
         }
     },
 })
 
-export const { addItemsToCart, removeItemsFormCart, clearCart, addQuantityItemsCart, minusQuantityItemsCart } = cartSlice.actions;
+export const { addItemsToCart, removeItemsFormCart, clearCart, addQuantityItemsCart, minusQuantityItemsCart, changeQuantityItemsCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
 // selector

@@ -3,12 +3,15 @@ import './App.css'
 import Header from './components/Header'
 import ProductList from './features/productlist/ProductList'
 import CartModal from './features/cart/CartModal'
+import ProductModal from './features/productlist/ProductModal'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import SearchIcon from "./assets/search.svg"
 
 function App() {
 	const [isModalCart, setIsModalCart] = useState(false)
+	const [isModalProduct, setIsModalProduct] = useState(false)
+	const [product, setProduct] = useState([])
     const [sidebarToggle, setSidebarToggle] = useState(false)
     const [animateSidebar, setAnimateSidebar] = useState("animate__slideInLeft")
 
@@ -18,6 +21,15 @@ function App() {
 
 	const handleHideModalCart = () => {
 		setIsModalCart(false)
+	}
+
+	const handleOpenModalProduct = (product) => {
+		setIsModalProduct(true)
+		setProduct(product)
+	}
+
+	const handleHideModalProduct = () => {
+		setIsModalProduct(false)
 	}
 
     const handleSidebar = () => {
@@ -35,6 +47,7 @@ function App() {
 	return (
 		<>
 			{isModalCart ? <CartModal handleHideModalCart={handleHideModalCart} /> : null }
+			{isModalProduct ? <ProductModal product={product} handleOpenModalCart={handleOpenModalCart} handleHideModalProduct={handleHideModalProduct} /> : null }
 			<Header handleOpenModalCart={handleOpenModalCart}/>
 			<main className="min-h-[85vh] max-w-10/12 lg:max-w-[90%] mx-auto lg:px-4 flex flex-row mt-20 lg:gap-4 font-urbanist">
 				<div className='hidden lg:block'>
@@ -56,7 +69,7 @@ function App() {
 						<img src={SearchIcon} alt="cart" loading="lazy" className="w-8 h-8 object-cover" />
 					</div>
 				}
-				<ProductList handleOpenModalCart={handleOpenModalCart}/>
+				<ProductList handleOpenModalCart={handleOpenModalCart} handleOpenModalProduct={handleOpenModalProduct}/>
 			</main>
 			<Footer />
 		</>

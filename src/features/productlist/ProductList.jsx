@@ -7,8 +7,10 @@ import CartIcon from "../../assets/cart.svg"
 import Loading from "../../components/Loading";
 import { selectProducts, storeProducts } from "./productSlice";
 import ToTop from "../../components/ToTop";
+import { IoEye } from "react-icons/io5";
 
-function ProductList({ handleOpenModalCart }) {
+
+function ProductList({ handleOpenModalCart, handleOpenModalProduct }) {
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch();
     const products = useSelector(selectProducts);
@@ -68,13 +70,23 @@ function ProductList({ handleOpenModalCart }) {
                                                     <span className="text-2xl font-thin">|</span>
                                                     <span className="text-base lg:text-sm">({product.rating.count} reviews)</span>
                                                 </div>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => handleBuyNow(product)}
-                                                    className="mt-3 md:mt-0 place-self-end md:place-self-center w-10 md:w-9 h-10 md:h-9 p-2 bg-gray-400 rounded-md"
-                                                >
-                                                    <img src={CartIcon} alt="cart" loading="lazy" className="w-full h-full object-cover" />
-                                                </button>
+                                                <div className="flex flex-row gap-2 justify-end">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleOpenModalProduct(product)}
+                                                        className="mt-3 md:mt-0 w-10 md:w-9 h-10 md:h-9 p-2 bg-gray-400 text-white text-xl flex justify-center items-center rounded-md"
+                                                    >
+                                                        {/* <img src={CartIcon} alt="cart" loading="lazy" className="w-full h-full object-cover" /> */}
+                                                        <IoEye />
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleBuyNow(product)}
+                                                        className="mt-3 md:mt-0 place-self-end md:place-self-center w-10 md:w-9 h-10 md:h-9 p-2 bg-gray-400 rounded-md"
+                                                    >
+                                                        <img src={CartIcon} alt="cart" loading="lazy" className="w-full h-full object-cover" />
+                                                    </button>
+                                                </div>
                                             </div>
 
                                         </div>
