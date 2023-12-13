@@ -54,7 +54,7 @@ const ProductModal = ({ handleOpenModalCart, handleHideModalProduct, product }) 
                             <span className="text-2xl font-thin">|</span>
                             <span className="text-base lg:text-sm">({product.rating.count} reviews)</span>
                         </div>
-                        <p className="mt-1 text-justify" >
+                        <p className="mt-1 text-justify max-h-[100px] md:max-h-[200px] lg:max-h-[300px] overflow-auto" >
                             {product.description}
                         </p>
                         
